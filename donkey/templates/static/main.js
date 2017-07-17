@@ -57,16 +57,16 @@ var driveHandler = (function() {
         console.log("Device has gamepad support.")
         hasGamepad = true;
       }
-      
-      if (window.DeviceOrientationEvent) {
-        window.addEventListener("deviceorientation", handleOrientation);
-        console.log("Browser supports device orientation, setting control mode to tilt.");
-        state.controlMode = 'tilt';
-        deviceOrientationLoop();
-      } else {
+
+      // if (window.DeviceOrientationEvent) {
+      //   window.addEventListener("deviceorientation", handleOrientation);
+      //   console.log("Browser supports device orientation, setting control mode to tilt.");
+      //   state.controlMode = 'tilt';
+      //   deviceOrientationLoop();
+      // } else {
         console.log("Device Orientation not supported by browser, setting control mode to joystick.");
         state.controlMode = 'joystick';
-      }
+      // }
     };
 
 
