@@ -1,12 +1,12 @@
 @media (max-width: 768px) {
 	#joystick-column {
-		position: fixed; 
-		bottom:100; 
-		right:0; 
-		width:100%; 
-		height:40%; 
+		position: fixed;
+		bottom:100px;
+		right:0;
+		width:100%;
+		height:40%;
 	}
-	
+
 	#joystick-padding {
 		height:220px;
 	}
