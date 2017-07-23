@@ -350,6 +350,11 @@ class ControlAPI(tornado.web.RequestHandler):
 
         V = self.application.get_vehicle(vehicle_id)
 
+        if not self.request.files.has_key('img'):
+          print('no image')
+          self.write(json.dumps({'angle': str(0.0), 'throttle': str(0.0), 'drive_mode': str(V['drive_mode']) }))
+          return
+
         img = self.request.files['img'][0]['body']
         img = Image.open(io.BytesIO(img))
         img_arr = dk.utils.img_to_arr(img)
