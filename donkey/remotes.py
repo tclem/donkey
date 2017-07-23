@@ -122,7 +122,7 @@ class RemoteClient():
                 r = self.session.post(self.control_url,
                                 files={'img': dk.utils.arr_to_binary(img_arr),
                                        'json': json.dumps(data)},
-                                       timeout=0.25)
+                                       timeout=1.0)
 
             except (requests.ConnectionError) as err:
                 #try to reconnect every .5 seconds
