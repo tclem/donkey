@@ -125,11 +125,11 @@ class RemoteClient():
                                        timeout=1.0)
 
             except (requests.ConnectionError) as err:
-                #try to reconnect every .5 seconds
+                #try to reconnect every 3 seconds
                 print("\n Vehicle could not connect to server. Make sure you've " +
-                    "started your server and you're referencing the right port." + err.strerror)
-                time.sleep(.1)
-                return 0, 0, None
+                    "started your server and you're referencing the right port.")
+                print(err)
+                time.sleep(3)
 
             except (requests.exceptions.ReadTimeout) as err:
                 #Lower throttle if their is a long lag.
@@ -352,11 +352,6 @@ class ControlAPI(tornado.web.RequestHandler):
         '''
 
         V = self.application.get_vehicle(vehicle_id)
-
-        if not self.request.files.has_key('img'):
-          print('no image')
-          self.write(json.dumps({'angle': str(0.0), 'throttle': str(0.0), 'drive_mode': str(V['drive_mode']) }))
-          return
 
         img = self.request.files['img'][0]['body']
         img = Image.open(io.BytesIO(img))
