@@ -1,1 +1,7 @@
-docker run -it -p 8887:8887 -v ~/mydonkey:/root/mydonkey donkey
+#!/bin/bash
+#
+# Run a server
+
+set -e
+
+script/app-env

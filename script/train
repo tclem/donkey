@@ -1,0 +1,6 @@
+#!/bin/bash
+#
+
+set -e
+
+script/app-env "python scripts/train.py --sessions 2017_07_18__straightaway --name testmodel"

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+appdir=$(cd $(dirname "$0")/.. && pwd)
+
+docker run -it -p 8887:8887 --rm \
+  -v ~/mydonkey:/root/mydonkey \
+  -v "$appdir:/donkey" \
+  donkey $@
