@@ -18,6 +18,8 @@ import requests
 import tornado.ioloop
 import tornado.web
 import tornado.gen
+from tornado.log import enable_pretty_logging
+enable_pretty_logging()
 
 from PIL import Image
 
