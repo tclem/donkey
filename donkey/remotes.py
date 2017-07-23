@@ -129,6 +129,7 @@ class RemoteClient():
                 print("\n Vehicle could not connect to server. Make sure you've " +
                     "started your server and you're referencing the right port." + err.strerror)
                 time.sleep(.1)
+                return 0, 0, None
 
             except (requests.exceptions.ReadTimeout) as err:
                 #Lower throttle if their is a long lag.
