@@ -123,11 +123,11 @@ class RemoteClient():
                                        timeout=0.25)
 
             except (requests.ConnectionError) as err:
-                #try to reconnect every 3 seconds
-                print("\n Vehicle could not connect to server. Make sure you've " + 
-                    "started your server and you're referencing the right port.")
-                time.sleep(3)
-            
+                #try to reconnect every .5 seconds
+                print("\n Vehicle could not connect to server. Make sure you've " +
+                    "started your server and you're referencing the right port." + err.strerror)
+                time.sleep(.1)
+
             except (requests.exceptions.ReadTimeout) as err:
                 #Lower throttle if their is a long lag.
                 print("\n Request took too long. Retrying")
