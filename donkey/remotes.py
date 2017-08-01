@@ -30,7 +30,7 @@ import donkey as dk
 class RemoteClient():
     '''
     Class used by a vehicle to send (http post requests) driving data and
-    receeve predictions from a remote webserver.
+    receive predictions from a remote webserver.
     '''
 
     def __init__(self, remote_url, vehicle_id='mycar'):
